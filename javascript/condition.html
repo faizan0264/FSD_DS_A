@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition</title>
+</head>
+<body>
+    <script>
+        let num=parseInt( prompt("Enter your number"));
+        let a = num;
+        let sum=0;
+        while(a>0){
+            let r = a%10;
+            sum=sum+r*r*r;
+            a=Math.floor(a/10);
+        }
+        if(num==sum){
+            document.write("Armstrong");
+        }
+        else {
+            document.write("not");
+        }
+    </script>
+</body>
+</html>

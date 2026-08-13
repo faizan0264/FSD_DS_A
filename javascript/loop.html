@@ -11,16 +11,22 @@
         // for(let i=0;i<10;i++){
         //     document.write("<br> hello")
         // }
-        let car = ["car","aura","buggati","Thar"];
-        var text =" ";
-        for(let i=0;i<car.length;i++){
-            // document.write(car[i]+"<br>");
-            if(i==1){
-                continue;
-            }
-            text+=car[i]+"<br>";
+        // let car = ["car","aura","buggati","Thar"];
+        // var text =" ";
+        // for(let i=0;i<car.length;i++){
+        //     // document.write(car[i]+"<br>");
+        //     if(i==1){
+        //         continue;
+        //     }
+        //     text+=car[i]+"<br>";
+        // }
+        // document.getElementById("demo").innerHTML=text;
+        let num=parseInt( prompt("Enter your number"));
+        let n=1;
+        while(n<=10){
+            document.write(num+"x"+n+"="+num*n+"<br>");
+            n++;
         }
-        document.getElementById("demo").innerHTML=text;
     </script>
 </body>
 </html>

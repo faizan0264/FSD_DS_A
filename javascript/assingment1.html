@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Billing Calculator</title>
+    <style>
+        /* Global Styles & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Container Card Styling */
+        main {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Product List Badge Header */
+        .inventory-box {
+            background-color: #f7fafc;
+            border: 1px solid #edf2f7;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        .inventory-title {
+            display: block;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+
+        .inventory-list {
+            color: #718096;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        /* Input Form Elements */
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #4f46e5;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+        }
+
+        button:hover {
+            background-color: #4338ca;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Output Text Display */
+        #para {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            min-height: 27px; /* Prevents layout shifting when blank */
+            font-weight: 500;
+        }
+
+        /* Utility classes generated dynamically by JS */
+        .success-text {
+            color: #059669;
+        }
+
+        .error-text {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="inventory-box">
+            <span class="inventory-title">🛍️ Available Items</span> 
+            <span class="inventory-list">tea:450 | coffe:600 | sugar:700 | putes:100</span>
+        </div>
+        
+        <input type="text" placeholder="Enter your product" id="prod">
+        <input type="number" placeholder="Enter your Quantity" id="quan" min="1">
+        <button onclick="calculateTotal()">Calculate Total</button>
+        
+        <p id="para"></p>
+    </main>
+
+    <script>
+        const products = {
+            tea: 450,
+            coffe: 600,
+            sugar: 700,
+            putes: 100
+        };
+
+        function calculateTotal() {
+            const nameInput = document.getElementById("prod").value.trim().toLowerCase();
+            const quanInput = parseInt(document.getElementById("quan").value, 10);
+            const displayPara = document.getElementById("para");
+
+            // Reset class lists before validation
+            displayPara.className = "";
+
+            if (!products.hasOwnProperty(nameInput)) {
+                displayPara.innerHTML = "⚠️ Enter a valid product";
+                displayPara.classList.add("error-text");
+                return;
+            }
+
+            if (isNaN(quanInput) || quanInput <= 0) {
+                displayPara.innerHTML = "⚠️ Enter a valid quantity";
+                displayPara.classList.add("error-text");
+                return;
+            }
+
+            const totalPrice = products[nameInput] * quanInput;
+            displayPara.innerHTML = "Your Total Price is = ₹" + totalPrice;
+            displayPara.classList.add("success-text");
+        }
+    </script>
+
+</body>
+</html>

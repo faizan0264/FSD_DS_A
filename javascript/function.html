@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function abes( a, b){
+        //     return a+b;
+        // }
+        // document.writeln(abes(11,12));
+        // document.writeln(abes(11,134));
+        // document.writeln(abes(111,12));
+        // const hell = (a,b) => {
+        //     return a+b;
+        // };
+        // document.writeln(hell(111,12));
+        // document.writeln(hell(131,134));
+        // document.writeln(hell(111,124));
+        let num=parseInt( prompt("Enter your product 1 or 2 or 3"));
+        let seat=parseInt( prompt("How many seats  you want to book"));
+        // let num=parseInt( prompt("Enter your product 1 or 2 or 3"));
+        const car = (a,b)=>{
+            // document.write("<br> Verna");
+            // document.write("<br> Verna");
+            // document.write("<br> Verna");
+            document.writeln("Your Car is Fortuner");
+            document.writeln(" One seat price is = " +a);
+            document.writeln(" The total seat you booked = " +b);
+            document.writeln(" The total seat price= " +b*a);
+        }
+        const air = (a,b)=>{
+              document.writeln("Your Airplane is AirIndia");
+            document.writeln(" One seat price is = " +a);
+            document.writeln(" The total seat you booked = " +b);
+            document.writeln(" The total seat price= " +b*a);
+
+        }
+        const heli = (a,b)=>{
+            document.writeln("Your Helicopter is from tesla");
+            document.writeln(" One seat price is = " +a);
+            document.writeln(" The total seat you booked = " +b);
+            document.writeln(" The total seat price= " +b*a);
+
+        }
+        if(num==1){
+            car(2500,seat);
+        }
+        else if(num==2){
+            air(4500,seat);
+        }
+        else if(num==3){
+            heli(3500,seat);
+        }
+        else{
+            document.write("Refresh and Enter Right Number");
+        }
+    </script>
+</body>
+</html>

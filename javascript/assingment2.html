@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+const stud = [
+  {
+    id: "STU001",
+    name: "Faizan",
+    age: 24,
+    branch:"b.tech"
+  },
+  {
+    id: "STU002", 
+    name: "Malik",
+    age: 23,
+    branch:"b.tech"
+  },
+  {
+    id: "STU003", 
+    name: "shivam",
+    age: 22,
+    branch:"b.tech"
+  },
+  {
+    id: "STU004", 
+    name: "kishan",
+    age: 21,
+    branch:"mca"
+  },
+  {
+    id: "STU005", 
+    name: "kartik",
+    age: 25,
+    branch:"mca"
+  }
+];
+let b=prompt("Enter branch for Data");
+// const data=stud.filter((branch)=>(branch==b));
+const data = stud.filter((student) => student.branch === b);
+document.write(JSON.stringify(data));
+</script>
+  </body>
+</html>

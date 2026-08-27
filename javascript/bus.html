@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    <style>
+        p{
+            margin-left: 15px;
+            color: white;
+        }
+        h3{
+            margin-left: 150px;
+            /* color: white; */
+        }
+        button{
+            margin-left: 150px;
+            background-color: red;
+            border-radius: 10px;
+            
+        }
+
+        button:hover { 
+             background-color: aqua; 
+        }
+
+    </style>
+</head>
+<body>
+    <div style="border: 2px solid red; width: 600px; height: 600px; background-color: blue;">
+        
+        <center>
+            <h1 style="color: white; font-size: 50px;"><img src="https://img.magnific.com/free-vector/school-bus-transport_24877-83090.jpg?semt=ais_hybrid&w=740&q=80" alt="" height="40px" width="50px" style="border-radius: 50%;"> Bus Booking System</h1>
+        </center> 
+        <h3>User Information</h3>
+        <p>User Name :<input type="text" id="name"></p>
+        <p>User Age :<input type="number" name="" id="age"></p>
+        <p>Aadhar Number :<input type="number" id="ad"></p>
+        <p>Select Your City :<select name="" id="city">
+            <option value="Ghaziabad">Ghaziabad</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Goa">Goa</option>
+            <option value="Merrut">Merrut</option>
+        </select></p>
+        <p>Select Your Travelling Date : <input type="date" id="date"></p>
+
+        <h3>Bus Information</h3>
+        <p>Select your Bus type </p>
+        <p>Ac Bus : 2000 <input type="radio" id="A1" name="ac" value="2000"></p>
+        <p>Non_Ac Bus : 1000 <input type="radio" id="A1" name="ac" value="1000"></p>
+        <p>Select Your Seat : <select name="" id="seat">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select></p>
+        <br>
+        <button onclick="val()">Click For Save</button>
+
+    </div>
+    <script>
+        function val(){
+            let name=document.getElementById("name").value;
+            let city =  document.getElementById("city").value;
+            let date = document.getElementById("date").value;
+            let amount=document.querySelector('input[name="ac"]:checked').value;
+            let seat=document.getElementById("seat").value;
+            let total=amount*seat;
+            alert("Welcome :" + name + "\n" +
+                " Your City is : " + city + "\n" +
+                "Your journey date is : " + date + "\n" +
+                "Your Total Amount is :" + total
+            );
+        }
+    </script>
+</body>
+</html>

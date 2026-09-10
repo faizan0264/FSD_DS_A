@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY SHOP</title>
     <style>
-        img{
+        img {
             width: 100px;
             height: 100px;
+            object-fit: cover;
         }
-        table{
+        table {
             width: 80%;
             margin: auto;
             padding: 10px;
             font-size: 25px;
             color: red;
             border: 2px solid red;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid red;
+            padding: 8px;
+            text-align: center;
         }
     </style>
 </head>
@@ -31,35 +38,38 @@
             </tr>
         </thead>
         <tbody id="data">
-
         </tbody>
     </table>
+    
     <script>
         const ele = document.getElementById("data");
-        const URL="https://dummyjson.com/products";
-        async function loadData(){
-            try{
+        const URL = "https://dummyjson.com/products";
+        
+        async function loadData() {
+            try {
                 const res = await fetch(URL);
                 const data = await res.json();
-                console.log("DATA",data.products);
-                let row ="";
-                data.products.map((i,index)=>{
-                    row+=`
+                console.log("DATA", data.products);
+                
+                let row = "";
+                data.products.map((i, index) => {
+                    row += `
                     <tr>
-                        <td>${index+1}</td>
+                        <td>${index + 1}</td>
                         <td>${i.title}</td>
-                        <td><img src="${i.images[0]}"/></td>
+                        <td><img src="${i.thumbnail || i.images[0]}" alt="${i.title}"/></td>
                         <td>${i.category}</td>
-                        <td>${i.price}</td>
-                        </tr>
+                        <td>$${i.price}</td>
+                    </tr>
                     `;
-                    ele.innerHTML=row;
-                })
+                });
+                ele.innerHTML = row; 
             }
-            catch(err){
+            catch (err) {
                 console.log("ERROR", err);
+                ele.innerHTML = `<tr><td colspan="5" style="color: black;">Failed to load products.</td></tr>`;
             }
-        };
+        }
         loadData();
     </script>
 </body>

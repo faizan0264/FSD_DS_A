@@ -19,7 +19,7 @@ const Changr = () => {
     <div>
         <h3>Image Changer</h3>
         <br />
-        <img src="src/components/cat.jpg" alt="" height={height} width={width}/>
+        <img src="src/assets/cat.jpg" alt="" height={height} width={width}/>
         <br />
         <button onClick={rowp}>row+</button>
         <button onClick={rowm}>row-</button>
